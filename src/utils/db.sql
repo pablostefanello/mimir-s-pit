@@ -1,4 +1,3 @@
-
 create table collage(
 	idCollage binary(16) not null primary key default(uuid_to_bin(uuid())),
     collageName varchar(400),
