@@ -1,26 +1,26 @@
-const { DataTypes } = require('sequelize');
-const { v4: uuidv4 } = require('uuid');
-const { UUIDV4, STRING, BINARY } = DataTypes;
+const { DataTypes } = require('sequelize')
+const { v4: uuidv4 } = require('uuid')
+const database = require('../db')
 
-const Collage = sequelize.define('Collage', {
-  idCollage: {
-    type: BINARY(16),
+const College = database.define('College', {
+  idCollege: {
+    type: DataTypes.UUID,
     primaryKey: true,
     allowNull: false,
-    defaultValue: UUIDV4,
-    field: 'idCollage',
+    defaultValue: uuidv4(),
+    field: 'idCollege',
   },
-  collageName: {
-    type: STRING(400),
-    field: 'collageName',
+  collegeName: {
+    type: DataTypes.STRING(400),
+    field: 'collegeName',
   },
   shortName: {
-    type: STRING(10),
+    type: DataTypes.STRING(10),
     field: 'shortName',
   },
 }, {
-  tableName: 'collage', // Nome da tabela no banco de dados
-  timestamps: false, // Se você não quiser colunas createdAt e updatedAt
-});
+  tableName: 'college',
+  timestamps: false,
+})
 
-module.exports = Collage;
+module.exports = College

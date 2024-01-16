@@ -2,17 +2,18 @@ require('dotenv/config')
 
 const express = require('express')
 const routes = require('./routes/')
-const { Sequelize } = require('sequelize')
+const database = require('./db')
 
 const app = express()
 const port = process.env.PORT || 3000
-const sequelize = new Sequelize('mimirspit', 'root', '1234', {host: "localhost", dialect: "mysql"})
 
-sequelize.authenticate().then(() => {
-  console.log('Connection has been established successfully.');
-}).catch((error) => {
-  console.error('Unable to connect to the database: ', error);
-});
+const college = require('./models/College')
+const question = require('./models/Question')
+const exam = require('./models/Exam')
+const question_exam = require('./models/Question_exam')
+const exam_try = require('./models/Try')
+
+database.sync();
 
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
