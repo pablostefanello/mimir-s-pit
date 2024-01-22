@@ -10,13 +10,13 @@ const Try = database.define('Try', {
     defaultValue: uuidv4(),
     field: 'idTry',
   },
-  idQuestionExam: {
+  idQuestionTest: {
     type: DataTypes.UUID,
     references: {
-      model: 'Question_Exam',
+      model: 'Question_Test',
       key: 'id',
     },
-    field: 'idQuestionExam',
+    field: 'idQuestionTest',
   },
   answer: {
     type: DataTypes.STRING(8),
@@ -28,7 +28,6 @@ const Try = database.define('Try', {
   },
 }, {
   tableName: 'try',
-  timestamps: false,
 });
 
 module.exports = Try;

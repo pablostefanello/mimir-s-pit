@@ -20,7 +20,6 @@ const College = database.define('College', {
   },
 }, {
   tableName: 'college',
-  timestamps: false,
 })
 
 module.exports = College

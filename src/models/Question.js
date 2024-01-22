@@ -20,7 +20,6 @@ const Question = database.define('Question', {
   },
 }, {
   tableName: 'question',
-  timestamps: false,
 })
 
 module.exports = Question

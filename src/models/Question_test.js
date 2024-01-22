@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize')
 const { v4: uuidv4 } = require('uuid')
 const database = require('../db')
 
-const QuestionExam = database.define('QuestionExam', {
+const QuestionTest = database.define('QuestionTest', {
   id: {
     type: DataTypes.UUID,
     primaryKey: true,
@@ -18,17 +18,16 @@ const QuestionExam = database.define('QuestionExam', {
     },
     field: 'idQuestion',
   },
-  idExam: {
+  idTest: {
     type: DataTypes.UUID,
     references: {
-      model: 'Exam',
-      key: 'idExam',
+      model: 'Test',
+      key: 'idTest',
     },
-    field: 'idExam',
+    field: 'idTest',
   },
 }, {
-  tableName: 'question_exam',
-  timestamps: false,
+  tableName: 'question_test',
 });
 
-module.exports = QuestionExam;
+module.exports = QuestionTest;
